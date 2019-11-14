@@ -5,7 +5,7 @@ import request from '@utils/request';
  * @param data object 用户账号密码
  */
 export function login(data) {
-  return request.post('/login', data, { login: false });
+  return request.post('/login', data, {login: false});
 }
 
 /**
@@ -13,7 +13,7 @@ export function login(data) {
  * @param data object 用户手机号 也只能
  */
 export function loginMobile(data) {
-  return request.post('/login/mobile', data, { login: false });
+  return request.post('/login/mobile', data, {login: false});
 }
 
 /**
@@ -21,7 +21,7 @@ export function loginMobile(data) {
  * @param data object 用户手机号
  */
 export function registerVerify(data) {
-  return request.post('/register/verify', data, { login: false });
+  return request.post('/register/verify', data, {login: false});
 }
 
 /**
@@ -29,7 +29,7 @@ export function registerVerify(data) {
  * @param data object 用户手机号 验证码 密码
  */
 export function register(data) {
-  return request.post('/register', data, { login: false });
+  return request.post('/register', data, {login: false});
 }
 
 /**
@@ -37,28 +37,28 @@ export function register(data) {
  * @param data object 用户手机号 验证码 密码
  */
 export function registerReset(data) {
-  return request.post('/register/reset', data, { login: false });
+  return request.post('/register/reset', data, {login: false});
 }
 
 /*
  * 领取优惠券列表
  * */
 export function getCoupon(q) {
-  return request.get('/coupons', q, { login: false });
+  return request.get('/coupons', q, {login: false});
 }
 
 /*
  * 点击领取优惠券
  * */
 export function getCouponReceive(id) {
-  return request.post('/coupon/receive', { couponId: id }, { login: true });
+  return request.post('/coupon/receive', {couponId: id}, {login: true});
 }
 
 /*
  * 批量领取优惠券
  * */
 export function couponReceiveBatch(couponId) {
-  return request.post('/coupon/receive/batch', { couponId });
+  return request.post('/coupon/receive/batch', {couponId});
 }
 
 /*
@@ -100,14 +100,14 @@ export function getAddressList(data) {
  * 删除地址
  * */
 export function getAddressRemove(id) {
-  return request.post('/address/del', { id: id });
+  return request.post('/address/del', {id: id});
 }
 
 /*
  * 设置默认地址
  * */
 export function getAddressDefaultSet(id) {
-  return request.post('/address/default/set', { id: id });
+  return request.post('/address/default/set', {id: id});
 }
 
 /*
@@ -132,17 +132,17 @@ export function postAddress(data) {
 }
 
 /*
- * 获取收藏产品
+ * 获取收藏产品 todo modified by 2019-11-14
  * */
 export function getCollectUser(page, limit) {
-  return request.get('/collect/user', { page: page, limit: limit });
+  return request.get('/store_api/get_user_collect_product', {page: page, limit: limit});
 }
 
 /*
- * 删除收藏产品
+ * 删除收藏产品  todo modified by 2019-11-14
  * */
 export function getCollectDel(id, category) {
-  return request.post('/collect/del', { id: id, category: category });
+  return request.post('/store_api/get_user_collect_product_del', {id: id, category: category});
 }
 
 /*
@@ -156,7 +156,7 @@ export function postCollectAll(data) {
  * 添加收藏产品
  * */
 export function getCollectAdd(id, category) {
-  return request.post('collect/add', { id: id, category: category });
+  return request.post('collect/add', {id: id, category: category});
 }
 
 /*
@@ -170,14 +170,14 @@ export function getSignConfig() {
  * 签到里的签到列表
  * */
 export function getSignList(page, limit) {
-  return request.get('/sign/list', { page: page, limit: limit });
+  return request.get('/sign/list', {page: page, limit: limit});
 }
 
 /*
  * 签到列表
  * */
 export function getSignMonth(page, limit) {
-  return request.get('/sign/month', { page: page, limit: limit });
+  return request.get('/sign/month', {page: page, limit: limit});
 }
 
 /*
@@ -268,7 +268,7 @@ export function getBalance() {
  * 活动状态
  * */
 export function getActivityStatus() {
-  return request.get('/user/activity', {}, { login: false });
+  return request.get('/user/activity', {}, {login: false});
 }
 
 /*
@@ -324,5 +324,5 @@ export function bindingPhone(data) {
  * h5切换公众号登陆
  * */
 export function switchH5Login() {
-  return request.post('switch_h5', { from: 'wechat' });
+  return request.post('switch_h5', {from: 'wechat'});
 }

@@ -13,7 +13,7 @@ export function getHomeData() {
  * @returns {*}
  */
 export function getFoodData() {
-  return request.get('public_api/', {}, {login: false});
+  return request.get('public_api/get_hot_product', {}, {login: false});
 }
 
 /**

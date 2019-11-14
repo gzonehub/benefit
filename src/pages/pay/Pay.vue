@@ -1,8 +1,8 @@
 <template>
   <div class="pay">
     <div class="head" @click="handleClick">
-      <img class="img" src="../.././assets/icon/fanhui.png" alt="" handleClick>
-      <div class="searchtext" >提交订单</div>
+      <img class="head-img" src="../.././assets/icon/fanhui.png" alt="" handleClick>
+      <div class="head-text" >提交订单</div>
     </div>
     <div class="details">
       <span class="order">订单详情</span>
@@ -10,9 +10,10 @@
       <span class="button two">不支持退款</span>
     </div>
     <div class="box"></div>
+
     <div class="orderinfo">
        <div class="order-list border-bottom">
-        <img class="img" src="../.././assets/icon/dingdan.png" alt="">
+        <img class="orderinfo-img" src="../.././assets/icon/dingdan.png" alt="">
         <div class="name" >订单信息</div>
        </div>
        <div class="product">
@@ -38,8 +39,8 @@
     <div class="box"></div>
     <div class="user">
        <div class="user-list border-bottom">
-        <img class="img" src="../.././assets/icon/wode.png" alt="">
-        <div class="name">收货人</div>
+        <img class="user-img" src="../.././assets/icon/wode.png" alt="">
+        <div class="user-name">收货人</div>
        </div>
        <div class="user-info">
           <p class="info border-bottom">
@@ -50,21 +51,16 @@
             <span class="key">电话：</span>
             <input type="text" class="usertel" maxlength="11" placeholder="请输入联系电话"  v-model="usertel">
           </p>
-          <el-button :plain="true" @click="openVn">消息提示</el-button>
        </div>
     </div>
     <div class="tabbar" >
-      <div class="price">实付款：
+      <div class="price">
+        <p>实付款：
           <span class="num">{{price}}</span>
+        </p>
       </div>
-      <div class="pay" @click="handlePay">
-        <p class="button">微信支付</p>
-      </div>
+      <div class="wx-pay" @click="handlePay">微信支付</div>
     </div>
-    <br>
-    <br>
-    <br>
-    <br>
   </div>
 </template>
 
@@ -108,127 +104,178 @@ export default {
   }
 }
 </script>
-<style lang="stylus" scoped>
-  .pay
-    margin-top: .8rem
-    .head
-      margin: 1rem .5rem 1.4rem
-      font-size: .9rem
-      .img
-        width: .8rem
-        height: 1rem
-        float: left
-        margin-right: .3rem
-        margin-right: .8rem
-      .searchtext
-        font-size: 1rem
-        vertical-align: middle
-    .details
-      position: relative
-      margin: 1rem .5rem 0
-      padding-bottom: .8rem
-      .button
-        border-radius: .2rem
-        padding: .3rem
-      .one
-        position: absolute
-        bottom: .44rem
-        right: 5rem
-        background: green
-        color: #fff
-      .two
-        position: absolute
-        bottom: .44rem
-        right: 0
-        background: yellow
-    .box
-      width: 100%
-      height: 1%vw
-      background: #eee
-    .orderinfo
-      margin: 0 .5rem
-      .order-list
-        font-size: .75rem
-        padding: .8rem 0
-        .img
-          width: .75rem
-          height: .75rem
-          float: left
-          margin-right: .3rem
-    .product
-      margin: .5rem 0
-      font-size: .75rem
-      line-height: 1.2rem
-      .product-img
-        width: 4.6rem
-        height: 4.6rem
-        float: left
-        margin-right: 1.6rem
-      .product-name
-        margin-bottom: 1rem
-        color: #000
-      .product-origin
-        color: #ccc
-    .product-info
-      clear: both
-      .info
-        line-height: 2rem
-        .value
-          margin-left: 1rem
-        .payment
-          color: red
-    .user
-      margin: 0 .5rem
-      .user-list
-        font-size: .75rem
-        padding: .8rem 0
-        .img
-          width: .75rem
-          height: .75rem
-          float: left
-          margin-right: .3rem
-      .user-info
-        font-size: .75rem
-        line-height: 1.2rem
-        .info
-          line-height: 2rem
-          .username
-            padding-bottom: .4rem
-          .usertel
-            padding-bottom: .4rem
-    .tabbar
-      position: fixed
-      right: 0
-      left: 0
-      bottom: 0
-      border-top: .01rem solid #eee
-      z-index: 999
-      background: #fff
-      width: 100%
-      height: 12%vw
-      .price
-        position: absolute
-        top: 0
-        left : 0
-        bottom: 0
-        width: 70%
-        background: #ccc
-        padding: 1rem .5rem
-        .num
-          color: red
-      .pay
-        position: absolute
-        right: 0
-        bottom: 0
-        width: 30%
-        height: 100%
-        line-height: 100%
-        background: green
-        text-align:center
-        color: #fff
-      .button
-        width: 100%
-        height: 100%
-        line-height: 100%
-        margin: 1rem auto
+<style scoped>
+  .pay{
+    margin-top: .8rem;
+  }
+
+  .head{
+    margin: 1rem .5rem 1.4rem;
+    font-size: .9rem;
+  }
+
+  .head-img{
+    width: .6rem;
+    height: 1rem;
+    float: left;
+    margin-right: .8rem;
+  }
+
+  .head-text{
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+    
+  .details{
+    position: relative;
+    margin: 1rem .5rem 0;
+    padding-bottom: .8rem;
+  }
+    
+  .button{
+    border-radius: .2rem;
+    padding: .3rem;
+  }
+  
+  .one{
+    position: absolute;
+    bottom: .44rem;
+    right: 5rem;
+    background: green;
+    color: #fff;
+  }
+        
+  .two{
+    position: absolute;
+    bottom: .44rem;
+    right: 0;
+    background: yellow;
+  }
+        
+  .box{
+    width: 100%;
+    height: 1%vw;
+    background: #eee;
+  }
+    
+  .orderinfo{
+    margin: 0 .5rem;
+  }
+    
+  .order-list{
+    font-size: .75rem;
+    padding: .8rem 0;
+  }
+    
+  .orderinfo-img{
+    width: .75rem;
+    height: .75rem;
+    float: left;
+    margin-right: .3rem;
+  }
+    
+  .product{
+    margin: .5rem 0;
+    font-size: .75rem;
+    line-height: 1.2rem;
+  }
+    
+  .product-img{
+    width: 4.6rem;
+    height: 4.6rem;
+    float: left;
+    margin-right: 1.6rem;
+  }
+    
+  .product-name{
+    margin-bottom: 1rem;
+    color: #000;
+  }
+    
+  .product-origin{
+    color: #ccc;
+  }
+        
+  .product-info{
+    clear: both;
+  }
+    
+  .info{
+    line-height: 2rem;
+  }
+    
+  .value{
+    margin-left: 1rem;
+  }
+
+  .payment{
+    color: red;
+  }
+    
+  .user{
+    margin: 0 .5rem;
+  }
+    
+  .user-list{
+    font-size: .75rem;
+    padding: .8rem 0;
+  }
+        
+  .user-img{
+    width: .75rem;
+    height: .75rem;
+    float: left;
+    margin-right: .3rem;
+  }
+    
+  .user-info{
+    font-size: .75rem;
+    line-height: 1.2rem;
+  }
+        
+  
+  .info{
+    line-height: 2rem;
+  }
+    
+  .username{
+    padding-bottom: .4rem;
+  }
+    
+  .usertel{
+    padding-bottom: .4rem;
+  }
+            
+  .tabbar{
+    position: fixed;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    border-top: .01rem solid #eee;
+    z-index: 999;
+    background: green;
+    width: 100%;
+    height: 3.4rem;
+  }  
+  .price{
+    float: left;
+    width: 70%;
+    line-height: 3.4rem;
+    background: #eee;
+    
+  }
+  .price p{
+    padding-left: 1rem;
+    
+  }
+  .num{
+    color: red;
+  }
+  .wx-pay{
+    float: left;
+    width: 30%;
+    line-height: 3.4rem;
+    text-align: center;
+    color: #fff;
+  }
 </style>
